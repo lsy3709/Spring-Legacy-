@@ -2,14 +2,21 @@
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" 
    "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
 <beans>
+<!-- 주기능 --> 
    <bean id="calcTarget" class="com.spring.ex01.Calculator" />
+   <!-- 보조 기능 --> 
    <bean id="logAdvice" class="com.spring.ex01.LoggingAdvice" />
    
+   
+   <!-- 주기능,보조기능을 모아서 처리하는 (인스턴스3) 구간  -->
    <bean id="proxyCal"
           class="org.springframework.aop.framework.ProxyFactoryBean">
+      <!-- 주기능 클래스 대상 정하기 target -> calc  / 주기능의 인스턴스1 가리키고 -->
       <property name="target" ref="calcTarget"/>
+      <!--interceptorNames 라는 고유속성의 목록의 요소로 위의 보조기능을 가리킨다 <bean id="logAdvice"  -->
       <property name="interceptorNames">
          <list>
+         <!-- 보조기능의 인스턴스2 가리킴  -->
             <value>logAdvice</value>
          </list>
       </property>
