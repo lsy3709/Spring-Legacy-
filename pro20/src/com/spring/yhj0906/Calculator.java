@@ -1,4 +1,4 @@
-package com.spring.ex01;
+package com.spring.yhj0906;
 
 public class Calculator {
 	public void add(int x, int y) {
