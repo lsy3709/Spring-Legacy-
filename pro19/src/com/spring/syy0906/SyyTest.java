@@ -10,7 +10,6 @@ public class SyyTest {
 	// 메인 메서드에서, 
 	public static void main(String[] args) {
 		System.out.println("충돌일어나지않게 테스트하기");
-		System.out.println("충돌일어나지않게 테스트하기");
 
 		
 	}
