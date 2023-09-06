@@ -34,7 +34,7 @@ public class PersonTest {
 		p1.setName("이상용");
 		p1.sayHello();
 		
-	//homework 브랜치 입니다.	
+	//homework 브랜치 입니다.
 	}
 
 }
