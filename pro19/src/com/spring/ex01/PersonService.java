@@ -8,4 +8,6 @@ public interface PersonService {
 	// 구체적인 행동은 없음. 
 	// 구현하는 클래스가 알아서, 재지정해서 사용해야함.
 	public void sayHello();
+	
+	//깃테스트 hoemwork 브랜치
 }
