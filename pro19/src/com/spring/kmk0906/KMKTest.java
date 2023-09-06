@@ -7,6 +7,7 @@ public class KMKTest {
 	public static void main(String[] args) {
 
 	System.out.println("Git test 김민경");
+	System.out.println("Git test 김민경2");
 	
 		
 	}
