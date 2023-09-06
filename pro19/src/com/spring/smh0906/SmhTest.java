@@ -9,7 +9,7 @@ public class SmhTest {
 
 	// 메인 메서드에서, 
 	public static void main(String[] args) {
-	System.out.println("깃 테스트중 송민하");
+	System.out.println("깃 테스트 송민하");
 	}
 
 }
