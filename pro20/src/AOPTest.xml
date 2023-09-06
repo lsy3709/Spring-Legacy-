@@ -2,12 +2,17 @@
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" 
    "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
 <beans>
+<!--  주기능의 인스턴스1-->
    <bean id="calcTarget" class="com.spring.ex01.Calculator" />
+   <!-- 보조 기능의 인스턴스2 -->
    <bean id="logAdvice" class="com.spring.ex01.LoggingAdvice" />
    
+   <!-- 주기능, 보조기능을 모아서 처리하는(인스턴스3) 구간 -->
    <bean id="proxyCal"
           class="org.springframework.aop.framework.ProxyFactoryBean">
+          <!-- 주기능을 어느 클래스로 할거냐 -->
       <property name="target" ref="calcTarget"/>
+      <!-- 인터셉터네임즈라는 고유 속성의 목록의 요소로 위으 보조기능을 가리킨다 -->
       <property name="interceptorNames">
          <list>
             <value>logAdvice</value>
