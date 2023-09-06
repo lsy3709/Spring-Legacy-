@@ -12,7 +12,6 @@ public class KMKTest {
 
 	System.out.println("Git test 김민경");
 		
-		//homework브랜치 입니다.
 		
 	}
 
