@@ -7,7 +7,7 @@ public class scbTest {
 	// 메인 메서드에서, 
 	public static void main(String[] args) {
 		System.out.println("테스트");
-//		수정했음.
+//		개인용 수정했음.
 		
 	}
 
