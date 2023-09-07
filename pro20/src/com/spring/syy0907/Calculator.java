@@ -1,4 +1,4 @@
-package com.spring.syy0906;
+package com.spring.syy0907;
 
 public class Calculator {
 	public void add(int x, int y) {

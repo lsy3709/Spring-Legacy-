@@ -1,4 +1,4 @@
-package com.spring.syy0906;
+package com.spring.syy0907;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
