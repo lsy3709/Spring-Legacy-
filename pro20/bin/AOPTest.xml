@@ -2,8 +2,8 @@
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" 
    "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
 <beans>
-   <bean id="calcTarget" class="com.spring.sjw0907.Calculator" />
-   <bean id="logAdvice" class="com.spring.sjw0907.LoggingAdvice" />
+   <bean id="calcTarget" class="com.spring.ex01.Calculator" />
+   <bean id="logAdvice" class="com.spring.ex01.LoggingAdvice" />
    
    <bean id="proxyCal"
           class="org.springframework.aop.framework.ProxyFactoryBean">
