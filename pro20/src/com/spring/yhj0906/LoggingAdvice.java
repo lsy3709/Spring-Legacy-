@@ -11,7 +11,7 @@ public class LoggingAdvice implements MethodInterceptor {
 		Object object = invocation.proceed();
 
 		System.out.println("[메서드 호출 후 : loggingAdvice");
-		System.out.println(invocation.getMethod() + "메서드 호출 후");
+		 System.out.println(invocation.getMethod() + "메서드 호출 후");
 		return object;
 	}
 }
