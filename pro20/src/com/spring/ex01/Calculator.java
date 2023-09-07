@@ -2,6 +2,8 @@ package com.spring.ex01;
 
 public class Calculator {
 	public void add(int x, int y) {
+		//주기능 동작을 하는 클래스로 가정하고 진행
+		//사칙연산이 
 		int result=x+y;
 		System.out.println("결과:"+ result);
 	}

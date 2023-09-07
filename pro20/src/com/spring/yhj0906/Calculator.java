@@ -18,6 +18,6 @@ public class Calculator {
 
 	public void divide(int x, int y) {
 		int result=x / y;
-		System.out.println("결과:"+ result);
+	 	System.out.println("결과:"+ result);
 	}
 }

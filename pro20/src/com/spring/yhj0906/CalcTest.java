@@ -14,7 +14,7 @@ public class CalcTest {
 	      System.out.println();
 	      cal.multiply(100,20);
 	      System.out.println();
-	       cal.divide(10,20);
+	        cal.divide(10,20);
 	   }
 	}
 
