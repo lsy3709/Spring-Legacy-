@@ -1,4 +1,4 @@
-package com.spring.ex01;
+package com.spring.LhS0906;
 
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
@@ -10,7 +10,7 @@ public class LoggingAdvice implements MethodInterceptor {
 
 		Object object = invocation.proceed();
 
-		System.out.println(" 이재영 과제 ");
+		System.out.println("[�޼��� ȣ�� �� : loggingAdvice");
 		System.out.println(invocation.getMethod() + "�޼��� ȣ�� ��");
 		return object;
 	}
