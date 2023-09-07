@@ -2,8 +2,6 @@ package com.spring.ex01;
 
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
-
-
 //보조기능을 나타내는 클래스. 실제 구현체
 //aspect :보조기능
 //advice : 위에 aspect의 실제 구현체(클래스)
@@ -21,8 +19,11 @@ public class LoggingAdvice implements MethodInterceptor {
 		//object => null 로 잡힘. 확인해보니
 		Object object = invocation.proceed();
 
-		System.out.println("메서드 호출 후  : loggingAdvice");
+System.out.println("메서드 호출 후  : loggingAdvice");
 		System.out.println(invocation.getMethod() + "메서드 호출 후");
+
+		
+		
 		return object;
 	}
 }
