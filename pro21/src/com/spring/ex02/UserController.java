@@ -10,6 +10,8 @@ public class UserController extends MultiActionController {
 	// login 메서드 , 반환 타입: ModelAndView
 	// 매개변수 , 반환 타입: HttpServletRequest, HttpServletResponse
 	// 클라이언트, 서버 간에 통신상 주고 받기 위한 전달 매개체.
+	
+	// 추가, 
 	public ModelAndView login(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// 임시 저장하기 위한 변수, 로그인 폼에서 입력받은 내용을 
 		// 클라이언트로 부터 받아와서 담을 변수. 

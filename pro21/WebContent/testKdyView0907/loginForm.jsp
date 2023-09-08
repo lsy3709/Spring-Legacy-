@@ -24,30 +24,34 @@
 <!-- action -> 값이 : 폼에 내용을 다 작성 후, 전송을 눌렀을 때, 서버의 어느 주소로 매핑한건지 여부 -->
 <%-- ${contextPath} : http://localhost:8080/pro21 --%>
 <!-- http://localhost:8080/pro21/test/login.do -->
-<form name="frmLogin" method="post"  action="${contextPath}/test/login.do">
+
+<!-- 변경1 join.do -->
+<form name="frmLogin" method="post"  action="${contextPath}/test/join.do">
+	<h1>result.jsp 페이지입니다.</h1>
+	
    <table border="1"  width="80%" align="center" >
       <tr align="center">
-         <td>아이디</td>
+         <td>이름</td>
          <td>이메일</td>
          <td>비밀번호</td>
       </tr>
       <tr align="center">
          <td>
-         <!-- 입력 받은 값을 어디에 할당 userID : 예 kdy -->
-	    <input type="text" name="userID" value="" size="20">
-	 </td>
+         	<!-- 입력 받은 값을 어디에 할당 userID : 예 kdy -->
+	    	<input type="text" name="userID" value="" size="20">
+	 	 </td>
          <td>
-         <!-- 입력 받은 값을 어디에 할당 email 예 @email -->
-	    <input type="password" name="email" value="" size="20">
-	 </td>
-	 	<td>
-         <!-- 입력 받은 값을 어디에 할당 passwd 예 1234 -->
-	    <input type="password" name="passwd" value="" size="20">
-	 </td>
+         	<!-- 입력 받은 값을 어디에 할당 email 예 kdy@email -->
+	    	<input type="text" name="userEmail" value="" size="20">
+	 	 </td>
+	 	 <td>
+         	<!-- 입력 받은 값을 어디에 할당 passwd 예 1234 -->
+	    	<input type="password" name="passwd" value="" size="20">
+	 	 </td>
       </tr>
       <tr align="center">
          <td colspan="3">
-         <!-- 입력된 모든 값들이 서버에 전부다 전송 -->
+         	<!-- 입력된 모든 값들이 서버에 전부다 전송 -->
             <input type="submit" value="로그인" > 
             <input type="reset"  value="다시입력" > 
          </td>
