@@ -86,14 +86,24 @@
          id=#{id}			
       ]]>
 	 </select>	
-	<!-- 나중에 주석처리  -->
-	<select id="selectMemberByName" resultType="memberVO"  parameterType="String" >
+	<!--손유영과제제출 
+			ex3 재사용  -->
+	
+<!-- 	<select id="selectMemberByName" resultType="memberVO"  parameterType="String" >
       <![CDATA[
          select * from t_member
          where
          name=#{name}			
       ]]>
 	 </select>	
+	
+	<select id="selectMemberByEmail" resultType="memberVO"  parameterType="String" >
+      <![CDATA[
+         select * from t_member
+         where
+         email=#{email}			
+      ]]>
+	 </select>	 -->
 	
 	<select id="selectMemberByPwd" resultMap="memResult"  parameterType="int" >
       <![CDATA[

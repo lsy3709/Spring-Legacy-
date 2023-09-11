@@ -50,13 +50,20 @@ public class MemberDAO {
 	}
 	
 //주석처리
-	public List<MemberVO> selectMemberByName(String id) {
-		sqlMapper = getInstance();
-		SqlSession session = sqlMapper.openSession();
-		List<MemberVO> membersList = null;
-		membersList= session.selectList("mapper.member.selectMemberByName",id);
-		return membersList;
-	}
+//	public List<MemberVO> selectMemberByName(String id) {
+//		sqlMapper = getInstance();
+//		SqlSession session = sqlMapper.openSession();
+//		List<MemberVO> membersList = null;
+//		membersList= session.selectList("mapper.member.selectMemberByName",id);
+//		return membersList;
+//	}
+//	public List<MemberVO> selectMemberByEmail(String id) {
+//		sqlMapper = getInstance();
+//		SqlSession session = sqlMapper.openSession();
+//		List<MemberVO> membersList = null;
+//		membersList= session.selectList("mapper.member.selectMemberByEmail",id);
+//		return membersList;
+//	}
 
 
 
