@@ -43,17 +43,39 @@
       ]]>
 	</select>
 
-	<select id="selectName" resultType="String">
+<!-- 	<select id="selectName" resultType="String">
     <![CDATA[
 	select name from t_member
 	where id = 'hong'			
     ]]>
 	</select>
-	
+ -->
+	<select id="selectName" resultType="String">
+    <![CDATA[
+	select name from t_member
+	where id = 'a1'			
+    ]]>
+	</select>
+<!-- 	
 	<select id="selectPwd" resultType="int" >
 	  <![CDATA[ 
 	    select pwd from t_member 
 	    where id = 'hong'
+	 ]]>
+	 </select> 
+	  -->
+	<select id="selectPwd" resultType="int" >
+	  <![CDATA[ 
+	    select pwd from t_member 
+	    where id = 'a2'
+	 ]]>
+	 </select> 
+	 
+	 <!-- 과제 selectDate -->
+	 	<select id="selectDate" resultType="String" >
+	  <![CDATA[ 
+	    select joinDate from t_member 
+	    where id = 'a3'
 	 ]]>
 	 </select> 
 	 
