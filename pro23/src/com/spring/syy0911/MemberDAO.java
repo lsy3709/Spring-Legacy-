@@ -1,4 +1,4 @@
-package com.spring.lsy0911;
+package com.spring.syy0911;
 
 import java.io.Reader;
 import java.util.List;
@@ -25,7 +25,7 @@ public class MemberDAO {
 		return sqlMapper;
 
 	}
-//원본
+
 	public List<MemberVO> selectAllMemberList() {
 		sqlMapper = getInstance();
 		SqlSession session = sqlMapper.openSession();
@@ -33,23 +33,6 @@ public class MemberDAO {
 		memlist = session.selectList("mapper.member.selectAllMemberList");
 		return memlist;
 	}
-	//과제
-		public List<MemberVO> selectAllMemberList2() {
-			sqlMapper = getInstance();
-			SqlSession session = sqlMapper.openSession();
-			List<MemberVO> memlist = null;
-			memlist = session.selectList("mapper.member.selectAllMemberList2");
-			return memlist;
-		}
-		//과제 
-//		public List<MemberVO> selectAllMemberList2() {
-//			sqlMapper = getInstance();
-//			SqlSession session = sqlMapper.openSession();
-//			List<MemberVO> memlist = null;
-//			memlist = session.selectList("mapper.member.selectAllMemberList2");
-//			return memlist;
-//		}
-
 	
 //	 public List<HashMap<String, String>> selectAllMemberList() { 
 //		sqlMapper = getInstance(); 
