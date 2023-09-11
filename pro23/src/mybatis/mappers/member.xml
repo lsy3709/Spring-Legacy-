@@ -56,6 +56,22 @@
 	 ]]>
 	 </select> 
 	 
+	 <select id="selectMemberByName" resultMap="memResult"  parameterType="String" >
+      <![CDATA[
+         select * from t_member
+         where
+         name = #{name}			
+      ]]>
+    </select>
+    
+	 <select id="selectMemberByEmail" resultMap="memResult"  parameterType="String" >
+      <![CDATA[
+         select * from t_member
+         where
+         email = #{email}			
+      ]]>
+    </select>
+	 
 	<select id="selectMemberById" resultType="memberVO"  parameterType="String" >
       <![CDATA[
          select * from t_member
