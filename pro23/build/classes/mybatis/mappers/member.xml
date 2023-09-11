@@ -56,6 +56,7 @@
 	 ]]>
 	 </select> 
 	 
+	 <!-- 과제 0911 - 김민경
 	 <select id="selectMemberByName" resultMap="memResult"  parameterType="String" >
       <![CDATA[
          select * from t_member
@@ -71,6 +72,7 @@
          email = #{email}			
       ]]>
     </select>
+    -->
 	 
 	<select id="selectMemberById" resultType="memberVO"  parameterType="String" >
       <![CDATA[
