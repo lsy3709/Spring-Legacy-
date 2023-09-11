@@ -46,14 +46,14 @@
 	<select id="selectName" resultType="String">
     <![CDATA[
 	select name from t_member
-	where id = 'hong'			
+	where id = 'a1'			
     ]]>
 	</select>
 	
 	<select id="selectPwd" resultType="int" >
 	  <![CDATA[ 
 	    select pwd from t_member 
-	    where id = 'hong'
+	    where id = 'b1'
 	 ]]>
 	 </select> 
 	 
@@ -61,7 +61,7 @@
       <![CDATA[
          select * from t_member
          where
-         id=#{id}			
+         id = #{id}			
       ]]>
 	 </select>	
 	
@@ -72,6 +72,22 @@
          pwd = #{pwd}			
       ]]>
     </select>
+    
+    <select id="selectMemberByName" resultMap="memResult"  parameterType="String" >
+      <![CDATA[
+         select * from t_member
+         where
+         name = #{id}			
+      ]]>
+	 </select>
+	 
+	 <select id="selectMemberByEmail" resultType="memberVO"  parameterType="String" >
+      <![CDATA[
+         select * from t_member
+         where
+         email = #{id}			
+      ]]>
+	 </select>	
     
      <insert id="insertMember"  parameterType="memberVO">
 		<![CDATA[

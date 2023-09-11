@@ -16,6 +16,8 @@
      <option value="listMembers" >전체</option>
      <option value="selectMemberById" >아이디</option>
      <option  value="selectMemberByPwd">비밀번호</option>
+     <option  value="selectMemberByName">이름</option>
+     <option  value="selectMemberByEmail">이메일</option>
    </select> <br>
    <input type="submit" value="검색"  />
 </form>   
