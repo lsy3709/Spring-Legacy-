@@ -39,7 +39,7 @@
 	<!-- 과제 -->
 		<select id="selectAllMemberList2" resultMap="memResult">
       <![CDATA[
-         select * from t_member 	
+         select * from t_member2	
       ]]>
 	</select>
 
