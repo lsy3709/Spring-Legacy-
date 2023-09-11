@@ -37,11 +37,11 @@
       ]]>
 	</select>
 	<!-- 과제 -->
-		<select id="selectAllMemberList2" resultMap="memResult">
+	<!-- 	<select id="selectAllMemberList2" resultMap="memResult">
       <![CDATA[
          select * from t_member2	
       ]]>
-	</select>
+	</select> -->
 
 <!-- 	<select id="selectName" resultType="String">
     <![CDATA[

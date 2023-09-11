@@ -45,7 +45,7 @@ public class MemberServlet extends HttpServlet {
 		//selectDate() -> 없음. 임의로 이름을 설정.
 		
 		System.out.println("순서3: dao.selectDate() 메서드 호출전 ");
-		String testDate = dao.selectDate();
+//		String testDate = dao.selectDate();
 		System.out.println("순서8: 역방향 시작, dao.selectDate() 메서드 호출후 ");
 		
 		System.out.println("순서9: 현재 뷰가 없어서, 자바스크립트 alert보여주기. ");
@@ -53,7 +53,7 @@ public class MemberServlet extends HttpServlet {
 		pw.write("<script>");
 		pw.write("alert(' 이름: " + name +"');");
 		pw.write("alert(' 패스워드 : "+ pwd+"');");
-		pw.write("alert(' 등록일 : "+ testDate+"');");
+//		pw.write("alert(' 등록일 : "+ testDate+"');");
 		pw.write("</script>");
 
 	}

@@ -39,6 +39,13 @@ public class MemberDAO {
 		int pwd = session.selectOne("mapper.member.selectPwd");
 		return pwd;
 	}
+// 실습 
+//	public String  selectDate() {
+//		sqlMapper = getInstance();
+//		SqlSession session = sqlMapper.openSession();
+//		String testDate = session.selectOne("mapper.member.selectDate");
+//		return testDate;
+//	}
 
 
 }
