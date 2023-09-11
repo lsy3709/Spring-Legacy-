@@ -86,6 +86,14 @@
          id=#{id}			
       ]]>
 	 </select>	
+	<!-- 나중에 주석처리  -->
+	<select id="selectMemberByName" resultType="memberVO"  parameterType="String" >
+      <![CDATA[
+         select * from t_member
+         where
+         name=#{name}			
+      ]]>
+	 </select>	
 	
 	<select id="selectMemberByPwd" resultMap="memResult"  parameterType="int" >
       <![CDATA[

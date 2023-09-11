@@ -17,7 +17,7 @@ isELIgnored="false" %>
       <td><b>비밀번호</b></td>
       <td><b>이름</b></td>
       <td><b>이메일</b></td>
-      <td><b>가입일</b></td>
+      <td><b>가입일</b></td> 
    </tr>
    <tr align="center">
       <td>${member.id} </td>
