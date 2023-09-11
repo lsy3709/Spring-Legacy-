@@ -1,4 +1,4 @@
-package com.spring.lsy0911;
+package com.spring.sdo0911;
 
 import java.io.IOException;
 import java.util.List;
@@ -34,7 +34,7 @@ public class MemberServlet extends HttpServlet {
 		List<MemberVO> membersList2 = dao.selectAllMemberList2();
 		//List<HashMap<String, String>> membersList = dao.selectAllMemberList();
 		request.setAttribute("membersList2", membersList2);
-		RequestDispatcher dispatch = request.getRequestDispatcher("test01/listMembersLsy0911.jsp");
+		RequestDispatcher dispatch = request.getRequestDispatcher("test01/listMemberssdo0911.jsp");
 		dispatch.forward(request, response);
 	}
 }
