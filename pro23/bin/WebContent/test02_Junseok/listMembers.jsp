@@ -19,18 +19,19 @@
     <tr align="center"   bgcolor="lightgreen">
       <td ><b>아이디</b></td>
       <td><b>비밀번호</b></td>
+      <td><b>이름</b></td>
       <td><b>이메일</b></td>
+      <td><b>가입일</b></td>
    </tr>
    
-   		<!-- List<MemberVO> membersList2 = dao.selectAllMemberList2();
-   		한 요소들이 각각 멤버의 정보를 담은 인스턴스들의 모음집
-   		 -->
-   		 <!-- 각 리스트의 요소를 하나씩 꺼내서 반복 처리하는 부분 -->
- <c:forEach var="member" items="${membersList2}" >     
+ <c:forEach var="member" items="${membersList}" >     
    <tr align="center">
       <td>${member.id}</td>
       <td>${member.pwd}</td>
+      <td>${member.name}</td>
       <td>${member.email}</td>
+      <td>${member.joinDate}</td>
+      
     </tr>
   </c:forEach>   
 </table>
