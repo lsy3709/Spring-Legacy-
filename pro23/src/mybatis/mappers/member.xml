@@ -87,6 +87,22 @@
          pwd = #{pwd}			
       ]]>
     </select>
+
+	<select id="selectMemberByName" resultType="memberVO"  parameterType="String" >
+      <![CDATA[
+         select * from t_member
+         where
+         name = #{name}			
+      ]]>
+    </select>
+
+	<select id="selectMemberByEmail" resultType="memberVO"  parameterType="String" >
+      <![CDATA[
+         select * from t_member
+         where
+         email = #{email}			
+      ]]>
+    </select>
     
      <insert id="insertMember"  parameterType="memberVO">
 		<![CDATA[
