@@ -1,4 +1,4 @@
-package com.spring.ktb0911;
+package com.spring.ktbTest0911;
 
 import java.io.IOException;
 import java.util.List;
@@ -45,9 +45,14 @@ public class MemberServlet extends HttpServlet {
 			nextPage = "test02/listMembers.jsp";
 		} else if (action.equals("selectMemberByName")) {
 			String name = request.getParameter("value");
-			memberVO = dao.selectMemberByName(name);
-			request.setAttribute("member", memberVO);
-			nextPage = "test02/memberInfo.jsp";
+			List<MemberVO> membersList = dao.selectAllMemberList();
+			request.setAttribute("membersList", membersList);
+			nextPage = "test02/listMembers.jsp";
+		} else if (action.equals("selectMemberByEmail")) {
+			String email = request.getParameter("value");
+			List<MemberVO> membersList = dao.selectAllMemberList();
+			request.setAttribute("membersList", membersList);
+			nextPage = "test02/listMembers.jsp";
 		}
 		
 		
