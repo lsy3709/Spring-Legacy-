@@ -97,7 +97,7 @@
       ]]>
     </select>
     
-   <!--  손주원 0911 실습과제
+   <!--  0911 과제 - 김민경
     <select id="selectMemberByName" resultMap="memResult"  parameterType="String" >
       <![CDATA[
          select * from t_member
@@ -106,13 +106,14 @@
       ]]>
     </select>
     
-    <select id="selectMemberByEmail" resultMap="memResult"  parameterType="String" >
+	 <select id="selectMemberByEmail" resultMap="memResult"  parameterType="String" >
       <![CDATA[
          select * from t_member
          where
          email = #{email}			
       ]]>
-    </select> -->
+    </select>
+    -->
     
      <insert id="insertMember"  parameterType="memberVO">
 		<![CDATA[
