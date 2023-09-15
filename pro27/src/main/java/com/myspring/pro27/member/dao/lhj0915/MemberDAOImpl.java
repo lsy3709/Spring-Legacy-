@@ -1,4 +1,4 @@
-package com.myspring.pro27.member.dao;
+package com.myspring.pro27.member.dao.lhj0915;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.myspring.pro27.member.vo.MemberVO;
 
-//@Repository("memberDAO")
+@Repository("memberDAO")
 public class MemberDAOImpl implements MemberDAO {
 	@Autowired
 	private SqlSession sqlSession;

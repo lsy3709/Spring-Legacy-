@@ -1,4 +1,4 @@
-package com.myspring.pro27.member.controller;
+package com.myspring.pro27.member.controller.lhj0915;
 
 import java.util.List;
 
@@ -18,12 +18,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.myspring.pro27.member.service.MemberService;
+import com.myspring.pro27.member.service.lhj0915.MemberService;
 import com.myspring.pro27.member.vo.MemberVO;
 
 
 
-//@Controller("memberController")
+@Controller("memberController")
 @EnableAspectJAutoProxy
 public class MemberControllerImpl   implements MemberController {
 //	private static final Logger logger = LoggerFactory.getLogger(MemberControllerImpl.class);
