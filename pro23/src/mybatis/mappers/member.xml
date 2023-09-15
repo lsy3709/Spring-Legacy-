@@ -38,7 +38,6 @@
          select * from t_member	order by joinDate desc	 	
       ]]>
 	</select>
-<<<<<<< HEAD
 
 
 <!-- 저희 샘플 디비에는 아이디가 hong 이 없음. 샘플 데이터, 
@@ -56,14 +55,14 @@
 	    where id = 'a2'
 	 ]]>
 	 </select> 
-=======
+
 	<!-- 과제0907 -->
 	<select id="selectAllMemberList2" resultMap="memResult">
       <![CDATA[
          select * from t_member 	
       ]]>
 	</select>
->>>>>>> branch 'homework' of https://github.com/Lian-OwO/SpringLegacy-.git
+
 	 
 	 <!-- 과제 selectDate -->
 	 	<select id="selectDate" resultType="String" >
