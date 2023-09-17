@@ -23,7 +23,7 @@ import com.myspring.pro27.member.vo.MemberVO;
 
 
 
-//@Controller("memberController")
+@Controller("memberController")
 @EnableAspectJAutoProxy
 public class MemberControllerImpl   implements MemberController {
 //	private static final Logger logger = LoggerFactory.getLogger(MemberControllerImpl.class);

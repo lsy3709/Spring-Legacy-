@@ -13,7 +13,7 @@ import com.myspring.pro27.member.dao.lhj0915.MemberDAO;
 import com.myspring.pro27.member.vo.MemberVO;
 
 
-@Service("memberService")
+//@Service("memberService")
 @Transactional(propagation = Propagation.REQUIRED)
 public class MemberServiceImpl implements MemberService {
 	@Autowired
