@@ -1,14 +1,20 @@
 package com.myspring.pro30.member.controller;
 
+import java.text.DateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,27 +27,27 @@ import com.myspring.pro30.member.vo.MemberVO;
 
 
 
-
 @Controller("memberController")
-//@EnableAspectJAutoProxy
+@EnableAspectJAutoProxy
 public class MemberControllerImpl   implements MemberController {
+//	private static final Logger logger = LoggerFactory.getLogger(MemberControllerImpl.class);
 	@Autowired
 	private MemberService memberService;
 	@Autowired
 	MemberVO memberVO ;
 	
-	@RequestMapping(value = { "/","/main.do"}, method = RequestMethod.GET)
-	private ModelAndView main(HttpServletRequest request, HttpServletResponse response) {
-		String viewName = (String)request.getAttribute("viewName");
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName(viewName);
-		return mav;
-	}
-	
 	@Override
 	@RequestMapping(value="/member/listMembers.do" ,method = RequestMethod.GET)
 	public ModelAndView listMembers(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		// 컨트롤러 내부에 있는 뷰이름을 가져오는 메서드를 이용
+//		String viewName = getViewName(request);
+		// 인터셉터를 이용해서, 
+		// 컨트롤러에 도착하기 전에, 먼저 뷰이름을 가져와서, -> 컨트롤러 -> request 
+		// 담아서 보내기. 
 		String viewName = (String)request.getAttribute("viewName");
+		System.out.println("인터셉터를 이용해서 viewName 사용하기: " +viewName);
+//		logger.info("viewName: "+ viewName);
+//		logger.debug("viewName: "+ viewName);
 		List membersList = memberService.listMembers();
 		ModelAndView mav = new ModelAndView(viewName);
 		mav.addObject("membersList", membersList);
@@ -84,24 +90,26 @@ public class MemberControllerImpl   implements MemberController {
 	public ModelAndView login(@ModelAttribute("member") MemberVO member,
 				              RedirectAttributes rAttr,
 		                       HttpServletRequest request, HttpServletResponse response) throws Exception {
+	// 처음 member, 클라이언트로부터 입력받은 id,pwd 만 있음.
 	ModelAndView mav = new ModelAndView();
+	// 로그인이 잘 된경우, 해당 유저의 나머지 정보를 다 가지고 옴. 
 	memberVO = memberService.login(member);
+//	로그인 후, 해당 회원의 정보를 다가지고 있음. :memberVO
 	if(memberVO != null) {
-	    HttpSession session = request.getSession();
-	    session.setAttribute("member", memberVO);
-	    session.setAttribute("isLogOn", true);
-	    //mav.setViewName("redirect:/member/listMembers.do");
-	    String action = (String)session.getAttribute("action");
-	    session.removeAttribute("action");
-	    if(action!= null) {
-	       mav.setViewName("redirect:"+action);
-	    }else {
-	       mav.setViewName("redirect:/member/listMembers.do");	
-	    }
-
+		// 서버 세션의 인스턴스를 가지고 오는 로직. 
+		    HttpSession session = request.getSession();
+		    // 세션에 멤버를 등록
+		    session.setAttribute("member", memberVO);
+		    // 세션에 상태변수에, isLogOn -> true 기록
+		    // 세션의 정보는, 모든 페이지에서 접근이 다 가능함. 
+		    session.setAttribute("isLogOn", true);
+		    // 후 처리 결과 페이지로 리다이렉트 이동 시키기.
+		    mav.setViewName("redirect:/member/listMembers.do");
 	}else {
-	   rAttr.addAttribute("result","loginFailed");
-	   mav.setViewName("redirect:/member/loginForm.do");
+		// 로그인 안된 경우, 해당 result 라는 키에, 값으로 loginFailed 문자열을 추가함.
+		    rAttr.addAttribute("result","loginFailed");
+		    // 다시, 로그인 폼으로 이동시키기. 
+		    mav.setViewName("redirect:/member/loginForm.do");
 	}
 	return mav;
 	}
@@ -109,7 +117,9 @@ public class MemberControllerImpl   implements MemberController {
 	@Override
 	@RequestMapping(value = "/member/logout.do", method =  RequestMethod.GET)
 	public ModelAndView logout(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		// 동일, 서버 세션
 		HttpSession session = request.getSession();
+		// 서버 세션의 키부분 삭제
 		session.removeAttribute("member");
 		session.removeAttribute("isLogOn");
 		ModelAndView mav = new ModelAndView();
@@ -119,19 +129,32 @@ public class MemberControllerImpl   implements MemberController {
 
 	@RequestMapping(value = "/member/*Form.do", method =  RequestMethod.GET)
 	private ModelAndView form(@RequestParam(value= "result", required=false) String result,
-							  @RequestParam(value= "action", required=false) String action,
 						       HttpServletRequest request, 
 						       HttpServletResponse response) throws Exception {
+		System.out.println("*Form.do 실행여부 확인=================");
+//		String viewName = getViewName(request);
+		// 인터셉터로 뷰 이름 가져오기 변경함. 
 		String viewName = (String)request.getAttribute("viewName");
-		HttpSession session = request.getSession();
-		session.setAttribute("action", action);  
+		System.out.println("*viewName 확인================="+ viewName);
 		ModelAndView mav = new ModelAndView();
+		System.out.println("*result 확인================="+ result);
 		mav.addObject("result",result);
 		mav.setViewName(viewName);
 		return mav;
 	}
 	
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	  public String home(Locale locale, Model model) {
+	    logger.info("Welcome home! The client locale is {}.", locale);
 
+	    Date date = new Date();
+	    DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, 
+	    DateFormat.LONG, locale);
+	    String formattedDate = dateFormat.format(date);
+	    model.addAttribute("serverTime", formattedDate );
+	    return "home";
+	  }
+	
 	private String getViewName(HttpServletRequest request) throws Exception {
 		String contextPath = request.getContextPath();
 		String uri = (String) request.getAttribute("javax.servlet.include.request_uri");
@@ -162,6 +185,59 @@ public class MemberControllerImpl   implements MemberController {
 		}
 		return viewName;
 	}
+
+	// pro26 맞게끔 교체 작업. 다음 시간. 
+		// 애너테이션 기법으로 교체 작업
+		// 현재 pro26, requestMapping으로 교체되어서, *Form 방식으로 변경할 예정.
+//		원래대로, 해당 매핑 주소를 추가해서, 해당 폼으로 가게 하는 방법1-> 추가
+		@Override
+		@RequestMapping(value = "/member/modMember.do", method =  RequestMethod.GET)
+		public ModelAndView modMember(@RequestParam("id") String id,HttpServletRequest request, HttpServletResponse response) throws Exception {
+			// 수정하는 폼에서, id를 get 방식으로 전송해서, 서버측에 받을 수 있음. 
+					// id를 가져오는 구조는, 삭제에서 복붙. 재사용.
+//					String id=request.getParameter("id");
+					
+					
+					String viewName = getViewName(request);
+					System.out.println("viewName(수정폼)이 뭐야? : " + viewName);
+					ModelAndView mav = new ModelAndView();
+					
+					// mav 에 데이터를 넣는 구조, 회원가입에서 복붙. 재사용.
+					// 결과 뷰에, 아이디만 전달함. 
+					// 만약, 이 아이디에 관련된 모든 정보를 결과 뷰에 재사용할려면
+					// 이 아이디로 하나의 회원의 정보를 디비에서 가져고 와서, 
+					// 이 하나의 회원의 정보를 결과 뷰에 넣으면됨. 
+					mav.addObject("user_id", id);
+					
+					// 추가, 해당 아이디로, 정보를 가져오기. 
+					// 조회된 한 회원의 정보를 담을 임시 인스턴스 : memberOne
+					// getOneMember : 서비스에 아직 없는 메서드 임. 임의로 추가. 
+					// 외주, 서비스로 동네2번 가기. 인터페이스도 추상메서드 추가. 
+					// 구현한 클래스에도 재정의 하기. 
+					MemberVO memberOne = memberService.getOneMember(id);
+					
+					// 디비에서 , 회원 정보를 가져왔으면 뷰에 데이터 전달하기. 
+					mav.addObject("member", memberOne);
+					
+					// 결과 뷰로 가게끔, 설정. 
+					mav.setViewName(viewName);
+					return mav;
+		}
+
+		//애너테이션 기법으로 교체 작업
+		@Override
+		@RequestMapping(value = "/member/updateMember.do", method =  RequestMethod.POST)
+		public ModelAndView updateMember(@ModelAttribute("memberVO") MemberVO memberVO, HttpServletRequest request, HttpServletResponse response) throws Exception {
+			request.setCharacterEncoding("utf-8");
+//			MemberVO memberVO = new MemberVO();
+//			bind(request, memberVO);
+			int result = 0;
+			// 실제 업데이트를 반영하는 로직, 외주주기. 동네 2번 보내기 
+			// 이름 : updateMember
+			result = memberService.updateMember(memberVO);
+			ModelAndView mav = new ModelAndView("redirect:/member/listMembers.do");
+			return mav;
+		}
 
 
 }
