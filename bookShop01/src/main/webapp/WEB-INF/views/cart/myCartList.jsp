@@ -328,7 +328,7 @@ function fn_order_all_cart_goods(){
 		 	<img width="75" alt="" src="${contextPath}/resources/image/btn_order_final.jpg">
 		 </a>
 		 <a href="#">
-		 	<img width="75" alt="" src="${contextPath}/resources/image/btn_shoping_continue.jpg">
+		 	<img width="75" alt="" src="${contextPath}/resources/image/btn_shopping_continue.jpg">
 		 </a>
 	<center>
 </form>	
